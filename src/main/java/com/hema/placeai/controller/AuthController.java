@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import com.hema.placeai.dto.AuthResponse;
 import com.hema.placeai.dto.RegisterRequest;
 import com.hema.placeai.service.AuthService;
+import com.hema.placeai.dto.*;
 
 @RestController
 @RequestMapping("/auth")
@@ -17,5 +18,11 @@ public class AuthController {
     @PostMapping("/register")
     public AuthResponse register(@RequestBody RegisterRequest request) {
         return authService.register(request);
+    }
+    @PostMapping("/login")
+    public LoginResponse login(
+            @RequestBody LoginRequest request) {
+
+        return authService.login(request);
     }
 }
